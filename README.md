@@ -1,1 +1,1 @@
-## Content for CIS 250
+## Projects for CIS 250
