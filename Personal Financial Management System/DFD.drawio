@@ -1,0 +1,176 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0" version="26.0.11">
+  <diagram name="Page-1" id="Q4_-7C5oJHHU5BJ1xBIH">
+    <mxGraphModel dx="2887" dy="2179" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="0JvBAhrAgcPJogbSnI_N-1" target="0JvBAhrAgcPJogbSnI_N-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="30" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="365" y="40" />
+              <mxPoint x="-230" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0JvBAhrAgcPJogbSnI_N-1" target="0JvBAhrAgcPJogbSnI_N-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0JvBAhrAgcPJogbSnI_N-1" target="0JvBAhrAgcPJogbSnI_N-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0JvBAhrAgcPJogbSnI_N-1" target="0JvBAhrAgcPJogbSnI_N-28" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0JvBAhrAgcPJogbSnI_N-1" target="0JvBAhrAgcPJogbSnI_N-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0JvBAhrAgcPJogbSnI_N-1" target="0JvBAhrAgcPJogbSnI_N-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="485" y="30" />
+              <mxPoint x="960" y="30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-1" value="User" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="365" y="-80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-7" target="0JvBAhrAgcPJogbSnI_N-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-7" value="Manage Budgets" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="900" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-8" target="0JvBAhrAgcPJogbSnI_N-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-8" value="Manage Accounts" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="-290" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-9" target="0JvBAhrAgcPJogbSnI_N-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-9" value="Manage Recurring Transactions" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="485" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-10" target="0JvBAhrAgcPJogbSnI_N-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-10" value="Record Transaction" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-11" target="0JvBAhrAgcPJogbSnI_N-28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1560" y="590" />
+              <mxPoint x="1560" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-11" value="Users" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="1320" y="550" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-12" value="Accounts" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="-292.5" y="550" width="125" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-13" value="Transactions" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="75" y="550" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-14" target="0JvBAhrAgcPJogbSnI_N-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="590" />
+              <mxPoint x="640" y="370" />
+              <mxPoint x="280" y="370" />
+              <mxPoint x="280" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-14" value="Budgets" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="910" y="550" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-15" target="0JvBAhrAgcPJogbSnI_N-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-440" y="590" />
+              <mxPoint x="-440" y="360" />
+              <mxPoint x="30" y="360" />
+              <mxPoint x="30" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-15" value="Categories" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="-620" y="550" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-16" target="Pc1tfyX04ezRAy0ySarr-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-16" value="Recurring Transactions" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="485" y="550" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-28" target="0JvBAhrAgcPJogbSnI_N-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-28" value="User Authentication/Registration" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="1280" y="235" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0JvBAhrAgcPJogbSnI_N-29" target="0JvBAhrAgcPJogbSnI_N-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-29" value="Manage Categories" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="-620" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-38" value="&lt;b&gt;The individual who interacts with the system to register, log in, and perform financial management tasks.&lt;/b&gt;" style="text;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;imageHeight=24;container=1;imageAspect=1;html=1;overflow=visible;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="325" y="-160" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-40" value="&lt;b&gt;Handles both new user registration and existing user login. This process collects credentials (username, password, etc.) from the User and interacts with the Users Store to validate or create an account.&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="1185" y="80" width="180" height="143" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-41" value="Allows users to create, view, and update financial accounts. It interacts with the Accounts Store." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="-420" y="160" width="175" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-42" value="Captures individual transactions (expenses, income) entered by the User. This process updates the Transactions Store and also retrieves a list of available categories from the Categories Store to classify the transaction." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="-120" y="113" width="210" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-44" value="Enables users to set, update, and review budgets based on spending categories. It interacts with the Budgets Store." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="780" y="146" width="170" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-45" value="Schedules and processes recurring financial events (e.g., monthly bills, salary deposits) and interacts with the Recurring Transactions Store." style="text;whiteSpace=wrap;html=1;resizable=1;rounded=1;strokeColor=default;verticalAlign=middle;align=center;" parent="1" vertex="1">
+          <mxGeometry x="370" y="130" width="165" height="108" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-47" value="Provides an interface for users to create or modify transaction categories (e.g., Rent, Groceries). This process interacts with the Categories Store." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;rounded=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-730" y="95" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-49" value="Holds all user account details, including login credentials and profile information." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="1230" y="440" width="135" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-50" value="Contains records of the various financial accounts linked to each user." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="-405" y="450" width="160" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="0JvBAhrAgcPJogbSnI_N-51" value="&lt;li data-end=&quot;1889&quot; data-start=&quot;1775&quot;&gt;&lt;p data-end=&quot;1889&quot; data-start=&quot;1777&quot;&gt;&lt;em data-end=&quot;1889&quot; data-start=&quot;1804&quot;&gt;Records each transaction, including the amount, type, date, and associated account.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="456" width="205" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-1" value="Maintains the list of categories used to classify transactions and budgets." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-760" y="458" width="175" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-2" value="Keeps details of transactions that are scheduled to occur regularly." style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="456" width="210" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-3" value="&lt;li data-end=&quot;1988&quot; data-start=&quot;1891&quot;&gt;&lt;p data-end=&quot;1988&quot; data-start=&quot;1893&quot;&gt;&lt;em data-end=&quot;1988&quot; data-start=&quot;1915&quot;&gt;Stores budgeting details by user and by category for specified periods.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=0;strokeColor=default;fillColor=none;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="461" width="240" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Pc1tfyX04ezRAy0ySarr-14" target="0JvBAhrAgcPJogbSnI_N-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Pc1tfyX04ezRAy0ySarr-14" value="Post Recurring Transactions" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
