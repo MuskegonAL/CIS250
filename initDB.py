@@ -41,7 +41,7 @@ cursor.execute("""
         PARENT_CATEGORY_ID integer,
         foreign key (PARENT_CATEGORY_ID) references CATEGORY(CATEGORY_ID)
     )
-""")d
+""")
 
 # Create Recurring_Transaction Table
 cursor.execute("""
