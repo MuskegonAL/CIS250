@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to SQLite database
-connection = sqlite3.connect("identifier.sqlite")
+connection = sqlite3.connect("financeManager.db")
 cursor = connection.cursor()
 
 # Create User Table
