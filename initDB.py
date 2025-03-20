@@ -35,10 +35,12 @@ cursor.execute("""
 cursor.execute("""
     create table if not exists CATEGORY (
         CATEGORY_ID integer primary key autoincrement,
+        USER_ID integer not null,
         NAME text not null,
         TYPE text not null,
         DESCRIPTION text,
         PARENT_CATEGORY_ID integer,
+        foreign key (USER_ID) references USER(USER_ID) on delete cascade
         foreign key (PARENT_CATEGORY_ID) references CATEGORY(CATEGORY_ID)
     )
 """)
