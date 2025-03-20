@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-02-26.23:32:45</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-03-20.19:29:44</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1705,231 +1705,242 @@
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="584" parent="557" name="NAME">
+    <column id="584" parent="557" name="USER_ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>text|0s</StoredType>
+      <StoredType>integer|0s</StoredType>
     </column>
-    <column id="585" parent="557" name="TYPE">
+    <column id="585" parent="557" name="NAME">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="586" parent="557" name="DESCRIPTION">
+    <column id="586" parent="557" name="TYPE">
+      <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="587" parent="557" name="PARENT_CATEGORY_ID">
+    <column id="587" parent="557" name="DESCRIPTION">
       <Position>5</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="588" parent="557" name="PARENT_CATEGORY_ID">
+      <Position>6</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <foreign-key id="588" parent="557">
+    <foreign-key id="589" parent="557">
+      <ColNames>USER_ID</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>USER_ID</RefColNames>
+      <RefTableName>USER</RefTableName>
+    </foreign-key>
+    <foreign-key id="590" parent="557">
       <ColNames>PARENT_CATEGORY_ID</ColNames>
       <RefColNames>CATEGORY_ID</RefColNames>
       <RefTableName>CATEGORY</RefTableName>
     </foreign-key>
-    <key id="589" parent="557">
+    <key id="591" parent="557">
       <ColNames>CATEGORY_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <check id="590" parent="558">
+    <check id="592" parent="558">
       <Predicate>FREQUENCY in (&apos;daily&apos;, &apos;weekly&apos;, &apos;monthly&apos;, &apos;yearly&apos;)</Predicate>
     </check>
-    <column id="591" parent="558" name="RECURRING_ID">
+    <column id="593" parent="558" name="RECURRING_ID">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="592" parent="558" name="ACCOUNT_ID">
+    <column id="594" parent="558" name="ACCOUNT_ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="593" parent="558" name="CATEGORY_ID">
+    <column id="595" parent="558" name="CATEGORY_ID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="594" parent="558" name="AMOUNT">
+    <column id="596" parent="558" name="AMOUNT">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>decimal(10,2)|0s</StoredType>
     </column>
-    <column id="595" parent="558" name="FREQUENCY">
+    <column id="597" parent="558" name="FREQUENCY">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="596" parent="558" name="NEXT_DUE_DATE">
+    <column id="598" parent="558" name="NEXT_DUE_DATE">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="597" parent="558" name="DESCRIPTION">
+    <column id="599" parent="558" name="DESCRIPTION">
       <Position>7</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="598" parent="558" name="CREATED_AT">
+    <column id="600" parent="558" name="CREATED_AT">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="599" parent="558" name="UPDATED_AT">
+    <column id="601" parent="558" name="UPDATED_AT">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="600" parent="558">
+    <foreign-key id="602" parent="558">
       <ColNames>ACCOUNT_ID</ColNames>
       <RefColNames>ACCOUNT_ID</RefColNames>
       <RefTableName>ACCOUNT</RefTableName>
     </foreign-key>
-    <foreign-key id="601" parent="558">
+    <foreign-key id="603" parent="558">
       <ColNames>CATEGORY_ID</ColNames>
       <RefColNames>CATEGORY_ID</RefColNames>
       <RefTableName>CATEGORY</RefTableName>
     </foreign-key>
-    <key id="602" parent="558">
+    <key id="604" parent="558">
       <ColNames>RECURRING_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <check id="603" parent="559">
+    <check id="605" parent="559">
       <Predicate>TRANSACTION_TYPE in (&apos;income&apos;, &apos;expense&apos;)</Predicate>
     </check>
-    <column id="604" parent="559" name="TRANSACTION_ID">
+    <column id="606" parent="559" name="TRANSACTION_ID">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="605" parent="559" name="ACCOUNT_ID">
+    <column id="607" parent="559" name="ACCOUNT_ID">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="606" parent="559" name="CATEGORY_ID">
+    <column id="608" parent="559" name="CATEGORY_ID">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="607" parent="559" name="AMOUNT">
+    <column id="609" parent="559" name="AMOUNT">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>decimal(10,2)|0s</StoredType>
     </column>
-    <column id="608" parent="559" name="TRANSACTION_TYPE">
+    <column id="610" parent="559" name="TRANSACTION_TYPE">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="609" parent="559" name="TRANSACTION_DATE">
+    <column id="611" parent="559" name="TRANSACTION_DATE">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="610" parent="559" name="DESCRIPTION">
+    <column id="612" parent="559" name="DESCRIPTION">
       <Position>7</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="611" parent="559" name="RECURRING_TRANSACTION_ID">
+    <column id="613" parent="559" name="RECURRING_TRANSACTION_ID">
       <Position>8</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="612" parent="559" name="CREATED_AT">
+    <column id="614" parent="559" name="CREATED_AT">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="613" parent="559" name="UPDATED_AT">
+    <column id="615" parent="559" name="UPDATED_AT">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="614" parent="559">
+    <foreign-key id="616" parent="559">
       <ColNames>ACCOUNT_ID</ColNames>
       <RefColNames>ACCOUNT_ID</RefColNames>
       <RefTableName>ACCOUNT</RefTableName>
     </foreign-key>
-    <foreign-key id="615" parent="559">
+    <foreign-key id="617" parent="559">
       <ColNames>CATEGORY_ID</ColNames>
       <RefColNames>CATEGORY_ID</RefColNames>
       <RefTableName>CATEGORY</RefTableName>
     </foreign-key>
-    <foreign-key id="616" parent="559">
+    <foreign-key id="618" parent="559">
       <ColNames>RECURRING_TRANSACTION_ID</ColNames>
       <RefColNames>RECURRING_ID</RefColNames>
       <RefTableName>RECURRING_TRANSACTION</RefTableName>
     </foreign-key>
-    <key id="617" parent="559">
+    <key id="619" parent="559">
       <ColNames>TRANSACTION_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="618" parent="560" name="USER_ID">
+    <column id="620" parent="560" name="USER_ID">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </column>
-    <column id="619" parent="560" name="USERNAME">
+    <column id="621" parent="560" name="USERNAME">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="620" parent="560" name="EMAIL">
+    <column id="622" parent="560" name="EMAIL">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="621" parent="560" name="PASSWORD_HASH">
+    <column id="623" parent="560" name="PASSWORD_HASH">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="622" parent="560" name="CREATED_AT">
+    <column id="624" parent="560" name="CREATED_AT">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="623" parent="560" name="UPDATED_AT">
+    <column id="625" parent="560" name="UPDATED_AT">
       <DefaultExpression>current_timestamp</DefaultExpression>
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="624" parent="560" name="sqlite_autoindex_USER_1">
+    <index id="626" parent="560" name="sqlite_autoindex_USER_1">
       <ColNames>USERNAME</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="625" parent="560">
+    <key id="627" parent="560">
       <ColNames>USER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="626" parent="560">
+    <key id="628" parent="560">
       <ColNames>USERNAME</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_USER_1</UnderlyingIndexName>
     </key>
-    <column id="627" parent="561" name="type">
+    <column id="629" parent="561" name="type">
       <Position>1</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="628" parent="561" name="name">
+    <column id="630" parent="561" name="name">
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="629" parent="561" name="tbl_name">
+    <column id="631" parent="561" name="tbl_name">
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="630" parent="561" name="rootpage">
+    <column id="632" parent="561" name="rootpage">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="631" parent="561" name="sql">
+    <column id="633" parent="561" name="sql">
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="632" parent="562" name="name">
+    <column id="634" parent="562" name="name">
       <Position>1</Position>
     </column>
-    <column id="633" parent="562" name="seq">
+    <column id="635" parent="562" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
