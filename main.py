@@ -15,24 +15,45 @@ def Account_Menu(userID):
         print("4. Delete Account")
         print("5. Back")
         choice = input("Choose: ")
+        # List Accounts
         if (choice == "1"):
             List_Accounts(userID)
+        # Create Account
         elif (choice == "2"):
             name = input("Account Name: ")
             accountType = input("Account Type: ")
             balance = float(input("Balance: "))
             institution = input("Institution: ")
             Create_Account(userID, name, accountType, balance, institution)
+        # Edit Account
         elif (choice == "3"):
-            accountID = int(input("Account ID: "))
-            name = input("New Account Name: ")
-            accountType = input("New Account Type: ")
-            balance = float(input("New Account Balance: "))
-            institution = input("New Account Institution: ")
-            Edit_Account(accountID, name, accountType, balance, institution)
+            List_Accounts(userID)
+            accountID = input("Account ID to Edit: ")
+            name = input("New Account Name (leave blank to keep current): ")
+            accountType = input("New Account Type (leave blank to keep current): ")
+            balance_str = input("New Account Balance (leave blank to keep current): ")
+            institution = input("New Account Institution (leave blank to keep current): ")
+
+            # Only pass non-empty values
+            kwargs = {}
+            if (name): kwargs["name"] = name
+            if (accountType): kwargs["accountType"] = accountType
+            if (balance_str):
+                try:
+                    kwargs["balance"] = float(balance_str)
+                except (ValueError):
+                    print("Invalid balance format. Skipping balance update.")
+            if (institution): kwargs["institution"] = institution
+
+            if (kwargs):  # Check if there is anything to update
+                Edit_Account(accountID, **kwargs)  # Pass arguments using dictionary unpacking
+            else:
+                print("No changes specified.")
+        # Delete Account
         elif (choice == "4"):
             accountID = int(input("Account ID: "))
             Delete_Account(accountID)
+        # Leave
         elif (choice == "5"):
             break
         else:
@@ -47,8 +68,10 @@ def Category_Menu(userID):
         print("4. Delete Category")
         print("5. Back")
         choice = input("Choose: ")
+        # List Categories
         if (choice == "1"):
             List_Categories(userID)
+        # Create Category
         elif (choice == "2"):
             name = input("Category Name: ")
             type = input("Category Type (income/expense): ")
@@ -57,18 +80,40 @@ def Category_Menu(userID):
             parent = input("Parent Category ID (optional): ")
             parentID = int(parent) if parent.strip() != "" else None
             Create_Category(userID, name, type, description, parentID)
+        # Edit Category
         elif (choice == "3"):
-            categoryID = int(input("Category ID: "))
-            name = input("New Category Name: ")
-            type = input("New Category Type (income/expense): ")
-            description = input("New Description (Optional): ")
-            description = description if description.strip() != "" else None
-            parent = input("Parent Category ID (optional): ")
-            parentID = int(parent) if parent.strip() != "" else None
-            Edit_Category(categoryID, name, type, description, parentID)
+            List_Categories(userID)
+            categoryID = input("Category ID to Edit: ")
+            name = input("New Category Name (leave blank to keep current): ")
+            type_str = input("New Category Type (income/expense, leave blank to keep current): ").lower()
+            description = input("New Description (Optional, leave blank to keep current): ")
+            parent_str = input("New Parent Category ID (optional, leave blank to keep current): ")
+
+            kwargs = {}
+            if (name): kwargs["name"] = name
+            if (type_str):
+                if (type_str in ["income", "expense"]):
+                    kwargs["categoryType"] = type_str
+                else:
+                    print("Invalid type specified. Skipping type update.")
+            if (description): kwargs["description"] = description
+            if (parent_str):
+                try:
+                    kwargs["parentCategoryID"] = int(parent_str)
+                except (ValueError):
+                    print("Invalid Parent ID format. Skipping parent ID update.")
+            elif (parent_str) == "":  # Allow setting parent to None
+                kwargs["parentCategoryID"] = None
+
+            if (kwargs):  # Check if there is anything to update
+                Edit_Category(categoryID, **kwargs)
+            else:
+                print("No changes specified.")
+        # Delete Category
         elif (choice == "4"):
             categoryID = int(input("Category ID: "))
             Delete_Category(categoryID)
+        # Leave
         elif (choice == "5"):
             break
         else:
