@@ -1,9 +1,11 @@
 from datetime import datetime
+import sqlite3
 
 from auth import Register_User, Login_User
 from accounts import Create_Account, List_Accounts, Edit_Account, Delete_Account
 from categories import Create_Category, List_Categories, Edit_Category, Delete_Category
 from transactions import Add_Transaction, List_Transactions, Edit_Transaction, Delete_Transaction
+from recurring import Add_Recurring_Transaction, List_Recurring_Transactions, Edit_Recurring_Transaction, Delete_Recurring_Transaction, Process_Due_Recurring_Transactions
 #from getpass import getpass
 
 def Account_Menu(userID):
@@ -211,6 +213,135 @@ def Transaction_Menu(userID):
         else:
             print("Invalid Choice")
 
+
+def Recurring_Menu(userID):
+    while True:
+        print("\n--- Recurring Transaction Menu ---")
+        print("1. List Recurring Transactions (for an account)")
+        print("2. Add Recurring Transaction")
+        print("3. Edit Recurring Transaction")
+        print("4. Delete Recurring Transaction")
+        print("5. Process Due Recurring Transactions (for all accounts)")
+        print("6. Back to Main Menu")
+        choice = input("Choose: ")
+
+        # List recurring transaction for an account
+        if (choice == "1"):
+            List_Accounts(userID)
+            accountID = input("Enter Account ID to list recurring transactions for: ")
+            List_Recurring_Transactions(accountID)
+        # Add recurring transaction
+        elif (choice == "2"):
+            List_Accounts(userID)
+            accountID = input("Account ID for this recurring transaction: ")
+            List_Categories(userID)
+            categoryID = input(
+                "Category ID (must be an expense category): ")  # Assuming recurring are expenses/bills
+            amount = input("Amount: ")
+            frequency = input("Frequency (daily, weekly, monthly, yearly): ").lower()
+            while (frequency not in ["daily", "weekly", "monthly", "yearly"]):
+                print("Invalid frequency.")
+                frequency = input("Frequency (daily, weekly, monthly, yearly): ").lower()
+            nextDueDateStr = input("Next Due Date (YYYY-MM-DD): ")
+            description = input("Description (Optional): ")
+            Add_Recurring_Transaction(accountID, categoryID, amount, frequency, nextDueDateStr,
+                                      description if description else None)
+        # Edit recurring transaction
+        elif (choice == "3"):
+            # Need to list all recurring for the user first, maybe across accounts?
+            print("Listing recurring transactions across all your accounts:")
+            conn = sqlite3.connect("financeManager.db")
+            cursor = conn.cursor()
+            cursor.execute("""SELECT r.RECURRING_ID, r.DESCRIPTION, r.NEXT_DUE_DATE, r.AMOUNT, a.NAME 
+                          FROM RECURRING_TRANSACTION r JOIN ACCOUNT a ON r.ACCOUNT_ID = a.ACCOUNT_ID 
+                          WHERE a.USER_ID = ? ORDER BY r.RECURRING_ID""", (userID,))
+            all_recurring = cursor.fetchall()
+            if (not all_recurring):
+                print("No recurring transactions found for any account.")
+                conn.close()
+                continue
+            for r_id, desc, due, amt, acc_name in all_recurring:
+                print(f"  ID: {r_id}, Desc: {desc}, Next Due: {due}, Amount: {amt}, Account: {acc_name}")
+            conn.close()
+
+            recurringID = input("Recurring Transaction ID to Edit: ")
+            print("Enter new details (leave blank to keep current value):")
+
+            new_account_str = input("New Account ID: ")
+            new_category_str = input("New Category ID: ")
+            new_amount_str = input("New Amount: ")
+            new_frequency = input("New Frequency (daily, weekly, monthly, yearly): ").lower()
+            new_nextDueDateStr = input("New Next Due Date (YYYY-MM-DD): ")
+            new_description = input("New Description: ")
+
+            kwargs = {}
+            if (new_account_str):
+                try:
+                    kwargs["accountID"] = int(new_account_str)
+                except (ValueError):
+                    print("Invalid Account ID. Skipping.")
+            if (new_category_str):
+                try:
+                    kwargs["categoryID"] = int(new_category_str)
+                except (ValueError):
+                    print("Invalid Category ID. Skipping.")
+            if (new_amount_str):
+                try:
+                    kwargs["amount"] = float(new_amount_str)
+                except (ValueError):
+                    print("Invalid Amount. Skipping.")
+            if (new_frequency):
+                if (new_frequency in ["daily", "weekly", "monthly", "yearly"]):
+                    kwargs["frequency"] = new_frequency
+                else:
+                    print("Invalid frequency. Skipping.")
+            if (new_nextDueDateStr):
+                try:
+                    datetime.strptime(new_nextDueDateStr, "%Y-%m-%d")
+                    kwargs["nextDueDateStr"] = new_nextDueDateStr
+                except (ValueError):
+                    print("Invalid Date format. Skipping.")
+            if (new_description): kwargs["description"] = new_description
+
+            if (kwargs):  # Check if there is anything to update
+                Edit_Recurring_Transaction(recurringID, **kwargs)
+            else:
+                print("No changes specified.")
+        # Delete recurring transaction
+        elif (choice == "4"):
+            # Similar listing as Edit
+            print("Listing recurring transactions across all your accounts:")
+            conn = sqlite3.connect("financeManager.db")
+            cursor = conn.cursor()
+            cursor.execute("""SELECT r.RECURRING_ID, r.DESCRIPTION, r.NEXT_DUE_DATE, r.AMOUNT, a.NAME 
+                          FROM RECURRING_TRANSACTION r JOIN ACCOUNT a ON r.ACCOUNT_ID = a.ACCOUNT_ID 
+                          WHERE a.USER_ID = ? ORDER BY r.RECURRING_ID""", (userID,))
+            all_recurring = cursor.fetchall()
+            if (not all_recurring):
+                print("No recurring transactions found for any account.")
+                conn.close()
+                continue
+            for r_id, desc, due, amt, acc_name in all_recurring:
+                print(f"  ID: {r_id}, Desc: {desc}, Next Due: {due}, Amount: {amt}, Account: {acc_name}")
+            conn.close()
+
+            recurringID = input("Recurring Transaction ID to Delete: ")
+            confirm = input(f"Are you sure you want to delete recurring transaction {recurringID}? (yes/no): ")
+            if (confirm.lower() == "yes"):
+                Delete_Recurring_Transaction(recurringID)
+            else:
+                print("Deletion cancelled.")
+        # Process recurring transactions
+        # TODO: Might process for all users?
+        elif (choice == "5"):
+            print("Processing due recurring transactions for all your accounts...")
+            Process_Due_Recurring_Transactions()
+        # Leave
+        elif (choice == "6"):
+            break
+        else:
+            print("Invalid Choice")
+
 def main():
     while (True):
         choice = input("\n1. Register\n2. Login\n3. Exit\nChoose an option: ")
@@ -233,7 +364,8 @@ def main():
                     print("1. Account Management")
                     print("2. Category Management")
                     print("3. Transaction Management")
-                    print("4. Logout")
+                    print("4. Recurring Transactions/Bills")
+                    print("5. Logout")
                     subChoice = input("Choose: ")
 
                     if (subChoice == "1"):
@@ -243,6 +375,8 @@ def main():
                     elif (subChoice == "3"):
                         Transaction_Menu(userID)
                     elif (subChoice == "4"):
+                        Recurring_Menu(userID)
+                    elif (subChoice == "5"):
                         print("Logging out.")
                         break
                     else:
