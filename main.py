@@ -1,11 +1,20 @@
+from datetime import datetime
+
 from auth import Register_User, Login_User
 from accounts import Create_Account, List_Accounts, Edit_Account, Delete_Account
 from categories import Create_Category, List_Categories, Edit_Category, Delete_Category
+from transactions import Add_Transaction, List_Transactions, Edit_Transaction, Delete_Transaction
 #from getpass import getpass
 
 def Account_Menu(userID):
-    while (True):
-        choice = input("\n--- Account Menu ---\n1. List Accounts\n2. Create Account\n3. Edit Account\n4. Delete Account\n5. Back\nChoose: ")
+    while True:
+        print("\n--- Account Menu ---")
+        print("1. List Accounts")
+        print("2. Create Account")
+        print("3. Edit Account")
+        print("4. Delete Account")
+        print("5. Back")
+        choice = input("Choose: ")
         if (choice == "1"):
             List_Accounts(userID)
         elif (choice == "2"):
@@ -30,8 +39,14 @@ def Account_Menu(userID):
             print("Invalid Choice")
 
 def Category_Menu(userID):
-    while (True):
-        choice = input("\n--- Category Menu ---\n1. List Categories\n2. Create Category\n3. Edit Category\n4. DeleteCategory\n5. Back\nChoose: ")
+    while True:
+        print("\n--- Category Menu ---")
+        print("1. List Categories")
+        print("2. Create Category")
+        print("3. Edit Category")
+        print("4. Delete Category")
+        print("5. Back")
+        choice = input("Choose: ")
         if (choice == "1"):
             List_Categories(userID)
         elif (choice == "2"):
@@ -59,6 +74,98 @@ def Category_Menu(userID):
         else:
             print("Invalid Choice")
 
+
+def Transaction_Menu(userID):
+    List_Accounts(userID)  # Show accounts first
+    accountID = input("Enter Account ID to manage transactions for: ")
+    while (True):
+        print(f"\n--- Transaction Menu (Account ID: {accountID}) ---")
+        print("1. List Transactions")
+        print("2. Add Transaction")
+        print("3. Edit Transaction")
+        print("4. Delete Transaction")
+        print("5. Back to Main Menu")
+        choice = input("Choose: ")
+
+        # List Transactions
+        if (choice == "1"):
+            List_Transactions(accountID)
+        # Add Transaction
+        elif (choice == "2"):
+            List_Categories(userID)  # Show categories to help user choose ID
+            categoryID = input("Category ID: ")
+            amount = input("Amount: ")
+            type = input("Transaction Type (income/expense): ").lower()
+            while (type not in ["income", "expense"]):
+                print("Invalid type. Must be 'income' or 'expense'.")
+                type = input("Transaction Type (income/expense): ").lower()
+            dateStr = input("Transaction Date")
+            description = input("Description (Optional): ")
+            Add_Transaction(accountID, categoryID, amount, type, dateStr, description if description else None)
+        # Edit Transaction
+        elif (choice == "3"):
+            List_Transactions(accountID)  # Show transactions to help user choose ID
+            transactionID = input("Transaction ID to Edit: ")
+            print("Enter new details (leave blank to keep current value):")
+
+            new_account_str = input(f"New Account ID (current account is {accountID}): ")
+            new_category_str = input("New Category ID: ")
+            new_amount_str = input("New Amount: ")
+            new_type = input("New Transaction Type (income/expense): ").lower()
+            new_dateStr = input("New Transaction Date (YYYY-MM-DD): ")
+            new_description = input("New Description: ")
+
+            # Try check with keyword arguments? TODO: Modify others using this method
+            kwargs = {}
+            if (new_account_str):
+                try:
+                    kwargs["accountID"] = int(new_account_str)
+                except (ValueError):
+                    print("Invalid Account ID format. Skipping.")
+            if (new_category_str):
+                try:
+                    kwargs["categoryID"] = int(new_category_str)
+                except (ValueError):
+                    print("Invalid Category ID format. Skipping.")
+            if (new_amount_str):
+                try:
+                    kwargs["amount"] = float(new_amount_str)
+                except (ValueError):
+                    print("Invalid Amount format. Skipping.")
+            if (new_type):
+                if (new_type in ["income", "expense"]):
+                    kwargs["transactionType"] = new_type
+                else:
+                    print("Invalid type specified. Skipping type update.")
+            if (new_dateStr):
+                try:
+                    datetime.strptime(new_dateStr, "%Y-%m-%d")
+                    kwargs["transactionDateStr"] = new_dateStr
+                except (ValueError):
+                    print("Invalid Date format. Skipping.")
+            if (new_description): kwargs["description"] = new_description
+
+            # If any keywords passed, THEN call function
+            if (kwargs):
+                Edit_Transaction(transactionID, **kwargs)
+            else:
+                print("No changes specified.")
+        # List Transactions
+        elif (choice == "4"):
+            List_Transactions(accountID)  # Show transactions to help user choose ID
+            transactionID = input("Transaction ID to Delete: ")
+            confirm = input(
+                f"Are you sure you want to delete transaction {transactionID}? This will adjust account balance. (yes/no): ")
+            if (confirm.lower() == "yes"):
+                Delete_Transaction(transactionID)
+            else:
+                print("Deletion cancelled.")
+        # Leave
+        elif (choice == "5"):
+            break
+        else:
+            print("Invalid Choice")
+
 def main():
     while (True):
         choice = input("\n1. Register\n2. Login\n3. Exit\nChoose an option: ")
@@ -70,20 +177,31 @@ def main():
             Register_User(username, email, password)
         elif (choice == '2'):
             username = input("Username: ")
-            #password = getpass("Password: ")
-            password = input("Password: ")
+            password = input("Password: ")  # TODO: Get Pass?
             userID = Login_User(username, password)
+
             if (userID):
-                print(f"Welcome, {username}!")
-                subChoice = input("\n--- Main Menu ---\n1. Account Management\n2. Category Management\n3. Logout\nChoose: ")
-                if (subChoice == '1'):
-                    Account_Menu(userID)
-                elif (subChoice == '2'):
-                    Category_Menu(userID)
-                elif (subChoice == '3'):
-                    break;
-                else:
-                    print("Invalid Choice")
+                print(f"\nWelcome, {username}!")
+
+                while True:  # Logged in menu loop
+                    print("\n--- Main Menu ---")
+                    print("1. Account Management")
+                    print("2. Category Management")
+                    print("3. Transaction Management")
+                    print("4. Logout")
+                    subChoice = input("Choose: ")
+
+                    if (subChoice == "1"):
+                        Account_Menu(userID)
+                    elif (subChoice == "2"):
+                        Category_Menu(userID)
+                    elif (subChoice == "3"):
+                        Transaction_Menu(userID)
+                    elif (subChoice == "4"):
+                        print("Logging out.")
+                        break
+                    else:
+                        print("Invalid Choice")
         elif (choice == '3'):
             break
         else:
