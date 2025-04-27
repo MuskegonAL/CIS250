@@ -42,8 +42,8 @@ def List_Categories(userID):
         print("\nCategories:")
         for category in categories:
             print(f"ID: {category[0]}, Name: {category[1]}, Type: {category[2]}, Description: {category[3]}, Parent ID: {category[4]}")
-        else:
-            print("No Categories Found")
+    else:
+        print("No Categories Found")
 
 def Edit_Category(categoryID, name, categoryType, description=None, parentCategoryID=None):
     conn = Get_DB_Connection()

@@ -99,7 +99,7 @@ def Transaction_Menu(userID):
             while (type not in ["income", "expense"]):
                 print("Invalid type. Must be 'income' or 'expense'.")
                 type = input("Transaction Type (income/expense): ").lower()
-            dateStr = input("Transaction Date")
+            dateStr = input("Transaction Date (YYYY-MM-DD): ")
             description = input("Description (Optional): ")
             Add_Transaction(accountID, categoryID, amount, type, dateStr, description if description else None)
         # Edit Transaction
