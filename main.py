@@ -6,7 +6,16 @@ from accounts import Create_Account, List_Accounts, Edit_Account, Delete_Account
 from categories import Create_Category, List_Categories, Edit_Category, Delete_Category
 from transactions import Add_Transaction, List_Transactions, Edit_Transaction, Delete_Transaction
 from recurring import Add_Recurring_Transaction, List_Recurring_Transactions, Edit_Recurring_Transaction, Delete_Recurring_Transaction, Process_Due_Recurring_Transactions
+from reports import Generate_Monthly_Summary, Generate_Category_Report, Generate_Income_Report
 #from getpass import getpass
+
+# Helper function to get integer input safely
+def get_int_input(prompt):
+    while (True):
+        try:
+            return int(input(prompt))
+        except (ValueError):
+            print("Invalid input. Please enter a number.")
 
 def Account_Menu(userID):
     while True:
@@ -342,6 +351,33 @@ def Recurring_Menu(userID):
         else:
             print("Invalid Choice")
 
+def Report_Menu(userID):
+    while (True):
+        print("\n--- Reporting Menu ---")
+        print("1. Monthly Summary (Income vs Expense)")
+        print("2. Monthly Expenses by Category")
+        print("3. Monthly Income by Category")
+        print("4. Back to Main Menu")
+        choice = input("Choose: ")
+
+        if (choice in ["1", "2", "3"]):
+            year = get_int_input("Enter Year (e.g., 2024): ")
+            month = get_int_input("Enter Month (1-12): ")
+            if (not 1 <= month <= 12):
+                print("Invalid month. Please enter a number between 1 and 12.")
+                continue
+
+            if (choice == "1"):
+                Generate_Monthly_Summary(userID, year, month)
+            elif (choice == "2"):
+                Generate_Category_Report(userID, year, month)
+            elif (choice == "3"):
+                Generate_Income_Report(userID, year, month)
+        elif (choice == "4"):
+            break
+        else:
+            print("Invalid Choice")
+
 def main():
     while (True):
         choice = input("\n1. Register\n2. Login\n3. Exit\nChoose an option: ")
@@ -365,7 +401,8 @@ def main():
                     print("2. Category Management")
                     print("3. Transaction Management")
                     print("4. Recurring Transactions/Bills")
-                    print("5. Logout")
+                    print("5. Reporting")
+                    print("6. Logout")
                     subChoice = input("Choose: ")
 
                     if (subChoice == "1"):
@@ -377,6 +414,8 @@ def main():
                     elif (subChoice == "4"):
                         Recurring_Menu(userID)
                     elif (subChoice == "5"):
+                        Report_Menu(userID)
+                    elif (subChoice == "6"):
                         print("Logging out.")
                         break
                     else:
